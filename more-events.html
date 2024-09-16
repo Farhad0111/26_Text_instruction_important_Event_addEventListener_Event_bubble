@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Events</title>
+</head>
+<body>
+    <h1>Explore More Events</h1>
+
+    <!-- Added missing input field -->
+    <input type="text" id="text-field" placeholder="Type something...">
+    <br><br>
+    
+    <button id="btn-more">Events</button>
+
+    <script>
+        // Corrected 'text-filed' to 'text-field'
+        document.getElementById('text-field').addEventListener('focus', function() {
+            console.log('Event triggered inside the input');
+        });
+
+        // Removed the extra space in 'mousemove' event listener
+        document.getElementById('btn-more').addEventListener('mousemove', function() {
+            console.log('Event Triggered');
+        });
+    </script>
+</body>
+</html>
