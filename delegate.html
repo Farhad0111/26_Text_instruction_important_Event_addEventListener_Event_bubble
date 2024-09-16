@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegate</title>
+</head>
+<body>
+    <h1>Explore Event Delegate</h1>
+
+    <!-- Input box and button to add new list items -->
+    <input type="text" id="new-item" placeholder="Add new item">
+    <button id="btn-add">Add to List</button>
+
+    <section>
+        <ul id="list-container">
+            <li class="item">Lorem ipsum dolor</li>
+            <li class="item">Fugit rerum quos</li>
+            <li class="item">Natus dolore</li>
+            <li class="item">Natus, dolorem</li>
+            <li class="item">Id, totam mollitia</li>
+            <li class="item">Beatae nihil!</li>
+        </ul>
+    </section>
+
+    <script>
+        // Event delegation to handle clicks on existing and future list items
+        const listContainer = document.getElementById('list-container');
+        listContainer.addEventListener('click', function(event) {
+            if (event.target && event.target.nodeName === 'LI') {
+                console.log('Clicked item:', event.target.innerText);
+            }
+        });
+
+        // Add new item to the list
+        document.getElementById('btn-add').addEventListener('click', function() {
+            const newItem = document.getElementById('new-item').value;
+
+            if (newItem) {
+                // Create a new 'li' element
+                const li = document.createElement('li');
+                li.className = 'item';
+                li.innerText = newItem;
+
+                // Append the new item to the list
+                listContainer.appendChild(li);
+
+                // Clear the input box after adding
+                document.getElementById('new-item').value = '';
+            }
+        });
+    </script>
+</body>
+</html>
